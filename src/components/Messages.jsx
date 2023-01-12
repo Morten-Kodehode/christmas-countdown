@@ -2,8 +2,8 @@ import React, { Fragment, useEffect, useState } from "react";
 import { BsSearch } from "react-icons/bs";
 
 const Messages = () => {
-  const [messageList, setMessageList] = useState([]);
   const [newMessages, setNewMessages] = useState("");
+  const [messageList, setMessageList] = useState([]);
 
   const message = (e) => {
     setNewMessages(e.target.value);
@@ -17,6 +17,7 @@ const Messages = () => {
     };
     setMessageList([...messageList, newMsg]);
     localStorage.setItem("msgs", JSON.stringify([...messageList, newMsg]));
+    setNewMessages("");
   };
 
   useEffect(() => {
@@ -30,6 +31,7 @@ const Messages = () => {
     <>
       <section className="flex justify-center pt-7">
         <input
+          value={newMessages}
           onChange={message}
           className="h-[30px] w-[300px] absolute py-4 pl-2 pr-10 text-purple-700 font-xmas font-semibold text-xl outline-none drop-shadow-lg rounded-lg"
           placeholder="Leave a message..."
