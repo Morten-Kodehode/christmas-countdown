@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { BsSearch } from "react-icons/bs";
+import { BsFillPlayFill } from "react-icons/bs";
 
 const Messages = () => {
   const [newMessages, setNewMessages] = useState("");
@@ -38,7 +38,7 @@ const Messages = () => {
           maxLength="35"
         />
         <button onClick={newMessage} className="relative left-[125px] top-2/4">
-          <BsSearch />
+          <BsFillPlayFill />
         </button>
       </section>
       <section className="grid grid-rows-3 grid-cols-3 justify-center items-center pt-10 mx-auto">
