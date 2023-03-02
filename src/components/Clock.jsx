@@ -1,6 +1,7 @@
 import React from "react";
 import Messages from "../components/Messages";
 
+// Clock section. Displays countdown
 const Clock = ({ days, hours, minutes, seconds }) => {
   return (
     <>

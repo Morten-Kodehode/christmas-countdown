@@ -10,16 +10,23 @@ const Messages = () => {
   };
 
   const newMessage = () => {
+    // If message field is empty. Displays and error message.
+    if (!newMessages) {
+      alert("Please enter a message first");
+      return;
+    }
     const newMsg = {
       id: new Date().getTime().toString(),
       title: newMessages,
       timestamp: new Date().toString().substring(15, 21),
     };
     setMessageList([...messageList, newMsg]);
+    // Stores message to LocalStorage
     localStorage.setItem("msgs", JSON.stringify([...messageList, newMsg]));
     setNewMessages("");
   };
 
+  // Retrieves messages from localStorage and displays them.
   useEffect(() => {
     if (localStorage.getItem("msgs")) {
       const stored = JSON.parse(localStorage.getItem("msgs"));
